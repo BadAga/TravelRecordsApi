@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TravelRecordsAPI.Models;
+using TravelRecordsAPI.Repository;
+using TravelRecordsAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,8 @@ builder.Services.AddSwaggerGen();
 //connect to DB
 var connectionString = builder.Configuration.GetConnectionString("TRConnection");
 builder.Services.AddDbContext<CoreDbContext>(options => options.UseSqlServer(connectionString));
+//blob storage
+builder.Services.AddTransient<IAzureStorage, AzureStorage>();
 
 var app = builder.Build();
 

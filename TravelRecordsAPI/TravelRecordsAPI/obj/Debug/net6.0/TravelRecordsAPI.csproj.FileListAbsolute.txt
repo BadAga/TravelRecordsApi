@@ -526,3 +526,8 @@ C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\Tra
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\obj\Debug\net6.0\TravelRecordsAPI.pdb
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\obj\Debug\net6.0\TravelRecordsAPI.genruntimeconfig.cache
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\obj\Debug\net6.0\ref\TravelRecordsAPI.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Azure.Core.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\System.IO.Hashing.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\System.Memory.Data.dll
