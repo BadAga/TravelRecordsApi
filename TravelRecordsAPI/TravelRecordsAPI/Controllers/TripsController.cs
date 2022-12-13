@@ -28,6 +28,21 @@ namespace TravelRecordsAPI.Controllers
         }
 
         // GET: api/Trips/5
+        [HttpGet("{userId}/userTrips")]
+        public async Task<ActionResult<IEnumerable<Trip>>> GetUsersTrips(int userId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            List<Trip> userTrips = _context.Trips.Where(x => x.UserId == userId).ToList();
+            return userTrips;
+        }
+
+        // GET: api/Trips/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Trip>> GetTrip(int id)
         {
@@ -74,10 +89,14 @@ namespace TravelRecordsAPI.Controllers
         // POST: api/Trips
         [HttpPost]
         public async Task<ActionResult<Trip>> PostTrip(Trip trip)
-        {
+        {            
+            var user = await _context.Users.FindAsync(trip.UserId);
 
+            if (user == null)
+            {
+                return NotFound();
+            }
             trip.TripId = this.GetTripId();
-
             _context.Trips.Add(trip);
             try
             {
