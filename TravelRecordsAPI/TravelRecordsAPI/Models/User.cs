@@ -10,7 +10,9 @@ namespace TravelRecordsAPI.Models
     {
         [Key]
         public int UserId { get; set; }
-        public int? ImageId { get; set; }
+        [StringLength(30)]
+        [Unicode(false)]
+        public string? ImageId { get; set; }
         [StringLength(30)]
         [Unicode(false)]
         public string Username { get; set; } = null!;

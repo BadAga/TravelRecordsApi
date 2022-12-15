@@ -65,6 +65,12 @@ namespace TravelRecordsAPI.Controllers
                 return BadRequest();
             }
 
+            //checking for assigning trip to non existent user
+            var user = await _context.Users.FindAsync(trip.UserId);
+            if (user == null)
+            {
+                return BadRequest();
+            }
             _context.Entry(trip).State = EntityState.Modified;
 
             try
@@ -94,8 +100,9 @@ namespace TravelRecordsAPI.Controllers
 
             if (user == null)
             {
-                return NotFound();
+                return BadRequest();
             }
+
             trip.TripId = this.GetTripId();
             _context.Trips.Add(trip);
             try

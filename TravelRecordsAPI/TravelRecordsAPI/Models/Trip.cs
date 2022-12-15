@@ -11,7 +11,9 @@ namespace TravelRecordsAPI.Models
     {
         [Key]
         public int TripId { get; set; }
-        public int? ImageId { get; set; }
+        [StringLength(30)]
+        [Unicode(false)]
+        public string? ImageId { get; set; }
         public int UserId { get; set; }
         [StringLength(200)]
         [Unicode(false)]

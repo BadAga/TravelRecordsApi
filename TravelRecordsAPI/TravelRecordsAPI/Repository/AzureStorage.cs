@@ -4,6 +4,7 @@ using TravelRecordsAPI.Dto;
 using TravelRecordsAPI.Models.ResponseDto;
 using TravelRecordsAPI.Services;
 using Azure;
+using System;
 
 //more info: https://blog.christian-schou.dk/how-to-use-azure-blob-storage-with-asp-net-core/
 
@@ -51,12 +52,12 @@ namespace TravelRecordsAPI.Repository
         public async Task<ImageDto> DownloadAsync(string imageId)
         {
             // Get a reference to a container named in appsettings.json
-            BlobContainerClient client = new BlobContainerClient(_storageConnectionString, _storageContainerName);
+            BlobContainerClient container = new BlobContainerClient(_storageConnectionString, _storageContainerName);
 
             try
             {
                 // Get a reference to the blob uploaded earlier from the API in the container from configuration settings
-                BlobClient file = client.GetBlobClient(imageId + ".jpg");
+                BlobClient file = container.GetBlobClient(imageId + ".jpg");
 
                 // Check if the file exists in the container
                 if (await file.ExistsAsync())
@@ -70,9 +71,14 @@ namespace TravelRecordsAPI.Repository
                     // Add data to variables in order to return a BlobDto
                     string name = imageId + ".jpg";
                     string contentType = content.Value.Details.ContentType;
+                    string uri = container.Uri.ToString();
+                    var fullUri = $"{uri}/{name}";
 
                     // Create new BlobDto with blob data from variables
-                    return new ImageDto { Content = blobContent, Name = name, ContentType = contentType };
+                    return new ImageDto { //Content=data,
+                                          Uri=fullUri,
+                                          Name = name, 
+                                          ContentType = contentType};
                 }
             }
             catch (RequestFailedException ex)

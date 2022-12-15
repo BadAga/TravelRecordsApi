@@ -52,7 +52,12 @@ namespace TravelRecordsAPI.Controllers
         public async Task<IActionResult> Upload(IFormFile file, int userId, int travelId, int stageId, int postId)
         {
             String imageId = GetImageId(userId, travelId, stageId, postId);
-
+            ImageDto? checkFile = await _storage.DownloadAsync(imageId);
+            //file with that name already exists
+            if(checkFile != null)
+            {
+                return Conflict();
+            }
             ImageResponseDto? response = await _storage.UploadAsync(file,imageId);
 
             // Check if we got an error
@@ -68,24 +73,6 @@ namespace TravelRecordsAPI.Controllers
             }
         }
 
-        [HttpGet("{imageId}")]
-        public async Task<IActionResult> Download(string imageId)
-        {
-            ImageDto? file = await _storage.DownloadAsync(imageId);
-
-            // Check if file was found
-            if (file == null)
-            {
-                // Was not, return error message to client
-                return StatusCode(StatusCodes.Status500InternalServerError, $"File {imageId} could not be downloaded.");
-            }
-            else
-            {
-                // File was found, return it to client
-                return File(file.Content, file.ContentType, file.Name);
-            }
-        }
-
         [HttpGet("{userId}/{travelId}/{stageId}/{postId}")]
         public async Task<IActionResult> Download(int userId, int travelId, int stageId, int postId)
         {
@@ -96,30 +83,13 @@ namespace TravelRecordsAPI.Controllers
             if (file == null)
             {
                 // Was not, return error message to client
-                return StatusCode(StatusCodes.Status500InternalServerError, $"File {imageId} could not be downloaded.");
+                return StatusCode(StatusCodes.Status404NotFound, $"File {imageId} doesn't exist.");
             }
             else
             {
                 // File was found, return it to client
-                return File(file.Content, file.ContentType, file.Name);
-            }
-        }
-
-        [HttpDelete("{imageId}")]
-        public async Task<IActionResult> Delete(string imageId)
-        {
-            ImageResponseDto response = await _storage.DeleteAsync(imageId);
-
-            // Check if we got an error
-            if (response.Error == true)
-            {
-                // Return an error message to the client
-                return StatusCode(StatusCodes.Status500InternalServerError, response.Status);
-            }
-            else
-            {
-                // File has been successfully deleted
-                return StatusCode(StatusCodes.Status200OK, response.Status);
+                // return File(file.Content, file.ContentType, file.Name,file.Uri);
+                return StatusCode(StatusCodes.Status200OK, file);
             }
         }
 
