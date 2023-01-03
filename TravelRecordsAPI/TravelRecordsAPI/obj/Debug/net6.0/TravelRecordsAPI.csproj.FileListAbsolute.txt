@@ -531,3 +531,5 @@ C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\Tra
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Azure.Storage.Common.dll
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\System.IO.Hashing.dll
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\System.Memory.Data.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
