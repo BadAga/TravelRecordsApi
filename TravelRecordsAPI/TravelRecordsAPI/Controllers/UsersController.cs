@@ -47,7 +47,7 @@ namespace TravelRecordsAPI.Controllers
         {
             if(_context.Users.Any(e=>e.Username==username))
             {
-                var user = _context.Users.FirstOrDefault(e=>e.Username==username);
+                var user = _context.Users.Where(e=>e.Username==username).FirstOrDefault();
                 if(user.Password==password)
                 {
                     
