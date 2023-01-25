@@ -18,7 +18,7 @@ namespace TravelRecordsAPI.Models
         public string Title { get; set; } = null!;
         [StringLength(150)]
         [Unicode(false)]
-        public string TripDesc { get; set; } = null!;
+        public string StageDesc { get; set; } = null!;
         [Column(TypeName = "date")]
         public DateTime? CreationDate { get; set; }
     }

@@ -28,6 +28,8 @@ namespace TravelRecordsAPI.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] UserDto userLogin)
         {
+            PasswordConverter passConv=new PasswordConverter(userLogin.Password);
+            userLogin.Password=passConv.GetHashedPassword();
             var user = _context.Users.FirstOrDefault(e => e.Username == userLogin.Username &&
                                                             e.Password == userLogin.Password);
             if(user!=null)

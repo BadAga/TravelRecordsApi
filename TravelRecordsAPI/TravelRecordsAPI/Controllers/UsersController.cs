@@ -88,6 +88,9 @@ namespace TravelRecordsAPI.Controllers
                 }
             }
 
+            PasswordConverter passCov = new PasswordConverter(user.Password);
+            user.Password = passCov.GetHashedPassword();
+
             _context.Entry(user).State = EntityState.Modified;
 
             try
@@ -113,8 +116,18 @@ namespace TravelRecordsAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            int maxUserId=_context.Users.Max(x=>x.UserId);
-            user.UserId = maxUserId + 1;
+            if(_context.Users.Count()==0)
+            {
+                user.UserId =1;
+            }
+            else
+            {
+                int maxUserId = _context.Users.Max(x => x.UserId);
+                user.UserId = maxUserId + 1;
+            }          
+
+            PasswordConverter passCov = new PasswordConverter(user.Password);
+            user.Password = passCov.GetHashedPassword();
 
             _context.Users.Add(user);
             //username must be unique

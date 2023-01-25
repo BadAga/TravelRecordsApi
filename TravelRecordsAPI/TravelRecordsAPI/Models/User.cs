@@ -19,7 +19,7 @@ namespace TravelRecordsAPI.Models
         [StringLength(50)]
         [Unicode(false)]
         public string Password { get; set; } = null!;
-        [StringLength(50)]
+        [StringLength(200)]
         [Unicode(false)]
         public string Email { get; set; } = null!;
         [StringLength(100)]
