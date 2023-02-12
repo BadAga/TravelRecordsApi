@@ -20,8 +20,6 @@ namespace TravelRecordsAPI.Models
         [StringLength(200)]
         [Unicode(false)]
         public string Story { get; set; } = null!;
-        public int? LocalizationId { get; set; }
-        [Column(TypeName = "date")]
         public DateTime? CreationDate { get; set; }
     }
 }

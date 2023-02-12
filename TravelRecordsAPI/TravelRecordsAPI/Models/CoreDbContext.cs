@@ -19,7 +19,8 @@ namespace TravelRecordsAPI.Models
         public virtual DbSet<Trip> Trips { get; set; } = null!;
         public virtual DbSet<Post> Posts { get; set; } = null!;
         public virtual DbSet<Stage> Stages { get; set; } = null!;
-
+        public virtual DbSet<Attraction> Attractions { get; set; } = null!;
+        public virtual DbSet<HasAttraction> HasAttractions { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -48,6 +49,17 @@ namespace TravelRecordsAPI.Models
             modelBuilder.Entity<Stage>(entity =>
             {
                 entity.Property(e => e.StageId).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<Attraction>(entity =>
+            {
+                entity.Property(e => e.AttractionId).ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<HasAttraction>(entity =>
+            {
+                entity.HasKey(e => new { e.AttractionId, e.StageId })
+                    .HasName("PK_has_attraction");
             });
 
             OnModelCreatingPartial(modelBuilder);

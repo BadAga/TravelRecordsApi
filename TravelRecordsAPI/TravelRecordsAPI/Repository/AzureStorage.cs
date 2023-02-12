@@ -127,8 +127,8 @@ namespace TravelRecordsAPI.Repository
             BlobContainerClient container = new BlobContainerClient(_storageConnectionString, _storageContainerName);
             //await container.CreateAsync();
             try
-            {          
-                if(blob!=null)
+            {
+                if (blob!=null)
                 {
                     Guid guid=Guid.NewGuid();
                     string extension=Path.GetExtension(blob.FileName);
@@ -155,7 +155,6 @@ namespace TravelRecordsAPI.Repository
                 response.Error = false;
                 response.Image.Uri = client.Uri.AbsoluteUri;
                 response.Image.Name = client.Name;
-
             }
             // If the file already exists, we catch the exception and do not upload it
             catch (RequestFailedException ex)
@@ -179,7 +178,7 @@ namespace TravelRecordsAPI.Repository
             // Return the BlobUploadResponse object
             return response;
         }
-
+     
         #endregion
 
     }

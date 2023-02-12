@@ -16,6 +16,7 @@ builder.Services.AddMvc();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 //jwt
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -37,7 +38,7 @@ var connectionString = builder.Configuration.GetConnectionString("TRConnection")
 builder.Services.AddDbContext<CoreDbContext>(options => options.UseSqlServer(connectionString));
 //blob storage
 builder.Services.AddTransient<IAzureStorage, AzureStorage>();
-
+builder.Services.AddHostedService<ClearJpgService>();
 var app = builder.Build();
 
 app.UseCors(options => options.AllowAnyOrigin()
