@@ -68,7 +68,7 @@ namespace TravelRecordsAPI.Controllers
             }
             catch (DbUpdateException)
             {
-                if (StageExists(stage.TripId))
+                if (StageExists((int)stage.TripId))
                 {
                     return Conflict();
                 }
