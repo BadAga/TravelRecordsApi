@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TravelRecordsAPI.Dto;
 using TravelRecordsAPI.Models;
@@ -7,6 +8,7 @@ using TravelRecordsAPI.Services;
 
 namespace TravelRecordsAPI.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class StorageController : ControllerBase

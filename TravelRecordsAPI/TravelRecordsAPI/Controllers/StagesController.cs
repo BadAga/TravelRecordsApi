@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TravelRecordsAPI.Models;
 
 namespace TravelRecordsAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class StagesController : ControllerBase
@@ -22,7 +24,7 @@ namespace TravelRecordsAPI.Controllers
             return await _context.Stages.ToListAsync();
         }
 
-        [HttpGet("{tripId}")]
+        [HttpGet("{tripId}/tripStages")]
         public async Task<ActionResult<IEnumerable<Stage>>> GetTripStages(int tripId)
         {
             var trip = await _context.Trips.FindAsync(tripId);

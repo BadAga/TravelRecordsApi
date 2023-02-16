@@ -22,6 +22,7 @@ namespace TravelRecordsAPI.Controllers
         }
 
         // GET: api/Users
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
@@ -29,6 +30,7 @@ namespace TravelRecordsAPI.Controllers
         }
 
         // GET: api/Users/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -42,6 +44,7 @@ namespace TravelRecordsAPI.Controllers
             return user;
         }
 
+        [Authorize]
         [HttpGet("{username}/{password}")]
         public async Task<ActionResult<User>> GetUser(string username,string password)
         {
@@ -64,6 +67,7 @@ namespace TravelRecordsAPI.Controllers
 
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
@@ -113,6 +117,7 @@ namespace TravelRecordsAPI.Controllers
         }
 
         // POST: api/Users
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
@@ -160,6 +165,7 @@ namespace TravelRecordsAPI.Controllers
         }
 
         // DELETE: api/Users/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

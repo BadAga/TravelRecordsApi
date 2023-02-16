@@ -11,6 +11,7 @@ using TravelRecordsAPI.Models.Dto;
 
 namespace TravelRecordsAPI.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
