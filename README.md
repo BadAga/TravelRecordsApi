@@ -39,6 +39,11 @@ Table of all created endpoints and expected responses.
 | Attractions | PUT |/api/Attractions/{attractionId} | 204, 400, 401, 500 | updates attraction values with set id|
 | Attractions | DELETE |/api/Attractions/{attractionId} | 204, 401, 403, 404 | deletes attraction with set id | 
 | Attractions | DELETE |/api/Attractions/{attractionId}/{stageId}| 204, 400, 401, 403, 404 | deletes connection between attraction and stage at set ids | 
+|Storage | GET | /api/Storage | 200 | Get all files at the Azure Storage Location and return them |
+|Storage | GET | /api/Storage/{userId}/{travelId}/{stageId}/{postId} | 200, 404 | returns file with set ids |
+|Storage | POST | /api/Storage/{imageId} | 200, 500 | uploads file, and renames it to fit image id |
+|Storage | POST | /api/Storage/{userId}/{travelId}/{stageId}/{postId}| 200, 409, 500 |  uploads file, and renames it to fit image id (combination of passed ids) |
+|Storage| DELETE| /api/Storage/{userId}/{travelId}/{stageId}/{postId} | 200, 404, 500 | deletes file with set image id (combination of passed ids) |
 
 
 
