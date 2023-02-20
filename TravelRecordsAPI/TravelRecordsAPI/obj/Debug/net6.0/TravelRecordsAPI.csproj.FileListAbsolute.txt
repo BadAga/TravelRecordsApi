@@ -533,3 +533,7 @@ C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\Tra
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\System.Memory.Data.dll
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Scrutor.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\agnie\source\repos\Travel Records\TravelRecordsApi\TravelRecordsAPI\TravelRecordsAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

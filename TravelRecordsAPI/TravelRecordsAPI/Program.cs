@@ -50,15 +50,15 @@ builder.Services.AddTransient<IAzureStorage, AzureStorage>();
 builder.Services.AddHostedService<ClearJpgService>();
 
 //cors
-builder.Services.AddCors(policy => policy.AddDefaultPolicy(build =>
-{
-    build.WithOrigins("https://localhost:7263", "https://localhost:3000").AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
-}));
+//builder.Services.AddCors(policy => policy.AddDefaultPolicy(build =>
+//{
+//    build.WithOrigins("https://localhost:7263", "https://localhost:3000").AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed((host) => true).AllowCredentials();
+//}));
 
 builder.Services.AddMvc();
 var app = builder.Build();
 
-app.UseCors();
+//app.UseCors();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
