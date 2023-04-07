@@ -46,7 +46,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 var connectionString = builder.Configuration.GetConnectionString("TRConnection");
 builder.Services.AddDbContext<CoreDbContext>(options => options.UseSqlServer(connectionString));
 //blob storage
-builder.Services.AddTransient<IAzureStorage, AzureStorage>();
+//builder.Services.AddTransient<IAzureStorage, AzureStorage>();
+builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddHostedService<ClearJpgService>();
 
 //cors
