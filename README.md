@@ -1,13 +1,13 @@
-# TravelRecordsApi
+# :national_park: TravelRecordsApi
 This API provides a comprehensive system for web applications that integrates **Entity Framework Core** for the data layer, **JSON Web Token** (JWT) authorization for authentication, **Azure Blob Storage** for data storage, **Azure SQL Database** for cloud storage, and a robust **MVC** design pattern for the application layer. In addition, this API implements secure password hashing for all user accounts. This README will provide an overview of the API and its components.
 
-## Database and Storage
-The API is based on Entity Framework Core and uses a SQL Database hosted on Azure. The API uses Azure Blob Storage for file storage and retrieval. Only photos were stored in the container. In order to match the photos to specific posts, user profile photos, or trip main picture the following naming convention was used: A_B_C_D.jpg, where A is the user's id, B is the id of the trip, C is the id of the stage, and D is the id of the post, a string of characters in A_B_C_D was the id of the photo.
+## :file_folder: Database and Storage
+The API is based on Entity Framework Core and uses a SQL Database hosted on Azure. The API uses Azure Blob Storage for file storage and retrieval. Only imgages were stored in the container. In order to match the image to specific posts, user profile photos, or trip main pictures the following naming convention was used: A_B_C_D.jpg, where A is the user's id, B is the id of the trip, C is the id of the stage, and D is the id of the post, a string of characters in A_B_C_D was the id of the photo.
 
-## Web Application premises
+## :abacus: Web Application premises
 The API was created for a web application that streamlines the preparation of travel reports, a convenient and intuitive system for organizing travel data. It allows you to view past travel histories and create new ones. Users can log in or register. Each user can create trips, each trip consists of stages, and a stage consists of posts (photo and photo description) and a list of attractions. In addition to each trip, a map of stages is created (in the form of pins on the map). The user can edit his data.
 
-## Getting Started
+## :scroll: Getting Started
 Here's a step-by-step guide to setting up and using TravelRecordsApi
 
   - Make sure your database is compatible with table model (see Models directory in repo)
@@ -19,7 +19,7 @@ Here's a step-by-step guide to setting up and using TravelRecordsApi
   - If you'll ever come across CORS error try uncommenting cors section in Program.cs
 
   
-## API Endpoints 
+## :computer: API Endpoints 
 Table of all created endpoints and expected responses.
 
 | Category | HTTP Verbs | Endpoint      | Possible response codes  | action  |
